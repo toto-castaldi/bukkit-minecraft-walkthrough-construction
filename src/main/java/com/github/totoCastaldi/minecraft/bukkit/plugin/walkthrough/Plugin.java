@@ -32,10 +32,45 @@ public class Plugin extends JavaPlugin {
             final String firstParameter = StringUtils.stripToEmpty(Iterables.getFirst(Arrays.asList(args), StringUtils.EMPTY));
 
             if ("1".equalsIgnoreCase(firstParameter)) step1(me);
+            if ("2".equalsIgnoreCase(firstParameter)) step2(me);
+        }
+
+        if (StringUtils.equalsIgnoreCase("answer", commandLabel)) {
+            final String firstParameter = StringUtils.stripToEmpty(Iterables.getFirst(Arrays.asList(args), StringUtils.EMPTY));
+
+            if ("1".equalsIgnoreCase(firstParameter)) answer1(me);
         }
 
         return true;
+    }
 
+    private void answer1(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        Block block = world.getBlockAt(location);
+        block.setType(Material.DIAMOND_BLOCK);
+
+        location = location.add(0, 1, 0);
+
+        block = world.getBlockAt(location);
+        block.setType(Material.DIAMOND_BLOCK);
+    }
+
+    private void step2(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        for (int i = 0; i < 30; i++) {
+            Block block = world.getBlockAt(location);
+            block.setType(Material.AIR);
+
+            location = location.add(0,-1,0);
+        }
     }
 
     private void step1(Player player) {
