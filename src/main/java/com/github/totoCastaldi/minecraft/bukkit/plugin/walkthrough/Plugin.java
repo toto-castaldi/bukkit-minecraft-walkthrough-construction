@@ -33,15 +33,49 @@ public class Plugin extends JavaPlugin {
 
             if ("1".equalsIgnoreCase(firstParameter)) step1(me);
             if ("2".equalsIgnoreCase(firstParameter)) step2(me);
+            if ("3".equalsIgnoreCase(firstParameter)) step3(me);
         }
 
         if (StringUtils.equalsIgnoreCase("answer", commandLabel)) {
             final String firstParameter = StringUtils.stripToEmpty(Iterables.getFirst(Arrays.asList(args), StringUtils.EMPTY));
 
             if ("1".equalsIgnoreCase(firstParameter)) answer1(me);
+            if ("2".equalsIgnoreCase(firstParameter)) answer2(me);
         }
 
         return true;
+    }
+
+    private void step3(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 20; i++) {
+                Block block = world.getBlockAt(location);
+                block.setType(Material.DIAMOND_BLOCK);
+
+                location = location.add(0, +1, 0);
+            }
+            location = location.add(+1, -20, 0);
+        }
+
+    }
+
+    private void answer2(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        for (int i = 0; i < 30; i++) {
+            Block block = world.getBlockAt(location);
+            block.setType(Material.DIAMOND_BLOCK);
+
+            location = location.add(0,+1,0);
+        }
     }
 
     private void answer1(Player player) {
