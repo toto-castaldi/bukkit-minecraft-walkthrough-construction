@@ -35,6 +35,7 @@ public class Plugin extends JavaPlugin {
             if ("2".equalsIgnoreCase(firstParameter)) step2(me);
             if ("3".equalsIgnoreCase(firstParameter)) step3(me);
             if ("4".equalsIgnoreCase(firstParameter)) step4(me);
+            if ("5".equalsIgnoreCase(firstParameter)) step5(me);
         }
 
         if (StringUtils.equalsIgnoreCase("answer", commandLabel)) {
@@ -43,9 +44,70 @@ public class Plugin extends JavaPlugin {
             if ("1".equalsIgnoreCase(firstParameter)) answer1(me);
             if ("2".equalsIgnoreCase(firstParameter)) answer2(me);
             if ("3".equalsIgnoreCase(firstParameter)) answer3(me);
+            if ("4".equalsIgnoreCase(firstParameter)) answer4(me);
         }
 
         return true;
+    }
+
+    private void step5(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        final int height = 10;
+
+        double startX = location.getX();
+        double startZ = location.getZ();
+        final double startY = location.getY();
+
+
+        for (int h = 0; h < height; h++) {
+            int width = (height - h - 1) * 2 + 1;
+            for (int x = 0; x < width; x ++) {
+                for (int z = 0; z < width; z ++) {
+                    location.setX(startX + x );
+                    location.setZ(startZ + z );
+                    location.setY(startY + h);
+
+                    Block block = world.getBlockAt(location);
+                    block.setType(Material.BRICK);
+                }
+            }
+            startX = startX + 1;
+            startZ = startZ + 1;
+        }
+
+    }
+
+    private void answer4(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        final double startX = location.getX();
+        final double startY = location.getY();
+        final double startZ = location.getZ();
+
+        final int length = 10;
+
+        for (int x = 1; x <= length; x++) {
+            for (int z = 1; z <= length; z++) {
+                for (int y = 1; y <= length; y++) {
+                    location.setX(startX + x);
+                    location.setY(startY + y);
+                    location.setZ(startZ + z);
+
+                    if (x == 1 || x == length || y == 1 || y == length || z == 1 || z == length) {
+                        Block block = world.getBlockAt(location);
+                        block.setType(Material.BRICK);
+                    }
+                }
+            }
+        }
+
     }
 
     private void step4(Player player) {
