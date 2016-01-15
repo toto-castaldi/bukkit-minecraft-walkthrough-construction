@@ -34,6 +34,7 @@ public class Plugin extends JavaPlugin {
             if ("1".equalsIgnoreCase(firstParameter)) step1(me);
             if ("2".equalsIgnoreCase(firstParameter)) step2(me);
             if ("3".equalsIgnoreCase(firstParameter)) step3(me);
+            if ("4".equalsIgnoreCase(firstParameter)) step4(me);
         }
 
         if (StringUtils.equalsIgnoreCase("answer", commandLabel)) {
@@ -41,9 +42,59 @@ public class Plugin extends JavaPlugin {
 
             if ("1".equalsIgnoreCase(firstParameter)) answer1(me);
             if ("2".equalsIgnoreCase(firstParameter)) answer2(me);
+            if ("3".equalsIgnoreCase(firstParameter)) answer3(me);
         }
 
         return true;
+    }
+
+    private void step4(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        final double startX = location.getX();
+        final double startY = location.getY();
+        final double startZ = location.getZ();
+
+        final int length = 10;
+
+        for (int x = 0; x < length; x++) {
+            for (int z = 0; z < length; z++) {
+                for (int y = 0; y < length; y++) {
+                    location.setX(startX + x);
+                    location.setY(startY + y);
+                    location.setZ(startZ + z);
+
+                    Block block = world.getBlockAt(location);
+                    block.setType(Material.DIAMOND_BLOCK);
+                }
+            }
+        }
+
+    }
+
+    private void answer3(Player player) {
+        Location location = player.getLocation();
+        World world = location.getWorld();
+
+        location = location.add(+2, 0, 0);
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 20; i++) {
+                Block block = world.getBlockAt(location);
+                if (i % 2 == 0) {
+                    block.setType(Material.DIAMOND_BLOCK);
+                } else {
+                    block.setType(Material.BRICK);
+                }
+
+                location = location.add(0, +1, 0);
+            }
+            location = location.add(+1, -20, 0);
+        }
+
     }
 
     private void step3(Player player) {
