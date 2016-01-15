@@ -5,7 +5,7 @@ bukkit-minecraft-construction-walkthrough
 
 change a block
 
-	/create 1
+	/step 1
 
 ![step 1](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-1.png "step 1")
 
@@ -17,7 +17,7 @@ change a block
 
 creating a hole
 
-	/create 2
+	/step 2
 
 ![step 2](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-2.png "step 2")
  
@@ -29,7 +29,7 @@ creating a hole
 
 creating a wall
 
-	/create 3
+	/step 3
 
  ![step 3](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-3.png "step 3")
  
@@ -41,7 +41,7 @@ creating a wall
 
 creating a cube
 
-	/create 4
+	/step 4
 
   ![step 4](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-4.png "step 4")
  
@@ -53,10 +53,9 @@ creating a cube
 
 creating a pyramid
 
-	/create 5
+	/step 5
 
-  ![step 5](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-5.png "step 5")
-
+![step 5](http://toto-castaldi.github.io/cdn/images/bukkit-minecraft-construction-walkthrough/step-5.png "step 5")
 
 #### greetings :
 
